@@ -19,4 +19,19 @@ class HashMiner
     end
     i
   end
+
+  def find_nonce_optimized
+    i = 0
+    md5 = Digest::MD5.new
+    target = searched_char * searched_count
+
+    loop do
+      i += 1
+      md5.reset
+      md5 << secret_key
+      md5 << i.to_s
+
+      return i if md5.hexdigest.start_with?(target)
+    end
+  end
 end
