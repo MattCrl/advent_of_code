@@ -10,4 +10,7 @@ RSpec.describe 'Advent of Code Day 5' do
   it 'runs examples for part 1' do
     expect(NiceStringFinder.new(strings, 3).check_all_requirements?).to eq(2)
   end
+
+  it 'runs examples for part 2' do
+  end
 end
