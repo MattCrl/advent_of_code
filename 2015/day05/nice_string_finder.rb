@@ -16,6 +16,14 @@ class NiceStringFinder
     n_str
   end
 
+  def check_better_requirements?
+    n_str = 0
+    strings.split("\n").map do |str|
+      n_str += contains_pair_not_overlapping?(str) && contains_sandwitch_letter?(str) ? 1 : 0
+    end
+    n_str
+  end
+
   private
 
   def contains_three_vowels?(str)
@@ -28,5 +36,13 @@ class NiceStringFinder
 
   def contains_forbiden_strings?(str)
     !str.match?(/ab|cd|pq|xy/)
+  end
+
+  def contains_pair_not_overlapping?(str)
+    str.scan(/(..)(?=.*\1)/).size >= 1
+  end
+
+  def contains_sandwitch_letter?(str)
+    (str =~ /(.).\1/)
   end
 end
