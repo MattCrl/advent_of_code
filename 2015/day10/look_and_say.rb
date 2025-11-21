@@ -7,9 +7,9 @@ class LookAndSay
 
   def play_game(rounds_number)
     rounds_number.times do
-      @input = @input.chars.chunk(&:itself).map { |_, v| v.join }.map{|a| "#{a.size}#{a[0]}"}.join
+      @input = @input.gsub(/(.)\1*/) { |match| "#{match.size}#{match[0]}" }
     end
-    
+
     @input
   end
 end
