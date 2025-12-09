@@ -7,4 +7,7 @@ input_path = File.join(__dir__, 'input.txt')
 rotations = File.read(input_path).strip.split("\n")
 
 dial = Dial.new((0..99).to_a, 50, rotations)
-puts dial.calculate_password
+puts dial.calculate_password_part1
+
+dial_p2 = Dial.new((0..99).to_a, 50, rotations)
+puts dial_p2.calculate_password_part2
